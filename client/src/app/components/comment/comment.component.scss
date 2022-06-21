@@ -1,0 +1,50 @@
+.comment-container {
+    // border: 1px solid #867F7F;
+    // box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
+    // border-radius: 0 10px 10px 0;
+    // max-height: 255px;
+    margin: 10px;
+    display: grid;
+    position: relative;
+    grid-template-areas:
+    "A B B B   B B B B   B B B B  B B B B   B B B B   B B B B  B B B B  "
+    "A C C C   C C C C   C C C C  C C C C   C C C C   C C C C  C C C C   "
+    "A C C C   C C C C   C C C C  C C C C   C C C C   C C C C  C C C C   "
+    "A C C C   C C C C   C C C C  C C C C   C C C C   C C C C  C C C C   "
+    "A E E E   E E E E   E E E E  E E E E   E E E E   E E E E  E E E E   ";
+
+    .avatar{        
+        grid-area: A;  
+        margin-right: 10px;
+        max-width: 100px;
+        // margin-left: 10px;
+        img {
+            border-radius: 100%;
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .author_name{
+        // margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 14pt;
+        grid-area: B;  
+    }
+    .content{
+        grid-area: C;  
+        font-family: 'Open Sans';
+        margin-bottom: 10px;
+        overflow: hidden;
+        
+    }
+    .date{
+        grid-area: E; 
+    }
+
+    .delete-btn {
+        position: absolute;
+        right: 7px;
+        top: 5px;
+    }
+
+}

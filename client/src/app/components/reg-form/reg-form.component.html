@@ -1,0 +1,41 @@
+<div #outer class="outer-conteiner" (click)="close($event)">
+    <form class="regForm" [formGroup]="regForm" (ngSubmit)="onSubmit()">
+        <div class="formLable">
+            Регистрация
+        </div>
+        
+        <div *ngIf="error" class="error-messeng">
+            Данные некорректны
+        </div>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Имя</mat-label>
+            <input matInput id="name" type="text" formControlName="name"
+                   placeholder="Your name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Почта</mat-label>
+            <input matInput id="mail" type="email" formControlName="mail"
+                   placeholder="Email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Логин</mat-label>
+            <input matInput id="login" type="text" formControlName="login"
+                   placeholder="Username">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Пароль</mat-label>
+            <input matInput id="password" type="password" formControlName="password"
+                   placeholder="Password">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Повторите пароль</mat-label>
+            <input matInput id="repeat_password" type="password" formControlName="repeat_password"
+                   placeholder="Repeat password">
+        </mat-form-field>
+        
+        <button mat-button class="button" type="submit">Зарегистрироваться</button>
+        
+        <button mat-button class="button" type="button" (click)="switchForm(FormType.LOGIN)">Уже есть аккаунт</button>
+    </form>
+</div>

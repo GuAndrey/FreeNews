@@ -1,0 +1,28 @@
+<div #outer class="outer-conteiner" (click)="close($event)">
+    <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="formLable">
+            Авторизация
+        </div>
+        
+        <div *ngIf="error" class="error-messeng">
+            Неверный логин или пароль
+        </div>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Логин</mat-label>
+            <input matInput id="login" type="text" formControlName="login"
+                   placeholder="Username or email">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Пароль</mat-label>
+            <input matInput id="password" type="password" formControlName="password"
+                   placeholder="Password">
+        </mat-form-field>
+
+        <button mat-button class="button" type="submit">Войти</button>
+        
+        <button mat-button class="button" type="button" (click)="switchForm(FormType.REG)">Зарегистрироваться</button>
+    </form>
+</div>
+

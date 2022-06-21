@@ -1,0 +1,57 @@
+<div *ngIf="news">
+    
+    <div 
+        class='news-container' 
+        (click)="toNewsPage($event)"
+        [ngClass]="{
+            'is-not-approved': !news.approved
+        }">
+        
+        <div class='preview'>
+            <img [src]="news.resources">
+        </div>
+        <div class='label'>
+            {{ news.title | slice: 0:50 }}
+        </div>
+        <div class="region-category">
+            {{ news.region }}, {{ news.category }}
+        </div>
+        <div class='content'>
+        </div>
+        <div class="author">
+            Автор: {{ news.author_name }}
+        </div>
+        <div class="date">
+            Дата: {{ news.publish_date }}
+        </div>
+        <div class="stats">
+            <mat-icon [ngClass]="{
+            'is-active': news.viewed
+            }">visibility</mat-icon>
+            <span style="margin: 0 5px;">{{ news.viewes }}</span>
+            <mat-icon 
+                (click)="swapLike()"
+                [ngClass]="{
+                'is-active': news.liked
+                }">thumb_up_off_alt</mat-icon>
+            <span style="margin: 0 5px;">{{ news.likes }}</span>
+            <mat-icon 
+                (click)="swapRep()"
+                [ngClass]="{
+                'is-active': news.plus_rep
+                }">verified_user</mat-icon>
+            <span style="margin: 0 5px;">{{ news.rep }}</span>
+            <mat-icon 
+                (click)="swapFavorite()"
+                [ngClass]="{
+                'is-active': news.favorited
+                }">turned_in</mat-icon
+            ><span style="margin: 0 5px;"></span>
+        </div>
+        
+        <div *ngIf="news.by_current" class="delete-btn"
+            (click)="deleteNews()">
+            <mat-icon>delete</mat-icon>
+        </div>
+    </div>
+</div>

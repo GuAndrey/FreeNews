@@ -1,0 +1,54 @@
+<div class="outer">
+    <form class="newsForm" [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+        <div class='container'>
+            <div>
+                
+                <div class='news-avatar'>
+                    Изображение для карточки: 
+                    <input
+                        type="file" 
+                        (change)="onFileSelected($event)" >
+                </div>
+                
+                <div class='news-label news-input'>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Название</mat-label>
+                        <input matInput id="login" type="text" formControlName="title" placeholder="Название">
+                    </mat-form-field>
+                </div>
+                
+                <div class='news-region news-input'>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Регион</mat-label>
+                        <mat-select id="region" formControlName="region">
+                            <mat-option *ngFor="let region of regions" [value]="region">
+                              {{region}}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class='news-category news-input'>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Категория</mat-label>
+                        <mat-select id="category" formControlName="category">
+                            <mat-option *ngFor="let category of categorys" [value]="category">
+                              {{category}}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class='news-content'> 
+                    <angular-editor formControlName="content"></angular-editor>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="save">
+            <button mat-button class="button" type="submit">Сохранить</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,53 @@
+<form [formGroup]="filterForm" (ngSubmit)="applyFilter()">
+    
+    <mat-form-field appearance="legacy">
+        <mat-label>Поиск</mat-label>
+        <input matInput  maxlength="360" id="searchInput" type="text" formControlName="search">
+    </mat-form-field>
+    
+    <div class="date-container">
+        <mat-form-field appearance="legacy">
+            <mat-label>от</mat-label>
+            <input matInput  maxlength="360" id="startDateInput" type="date" formControlName="startDate">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>по</mat-label>
+            <input matInput  maxlength="360" id="endDateInput" type="date" formControlName="endDate">
+        </mat-form-field>
+    </div>
+    
+    <mat-form-field appearance="legacy">
+        <mat-label>Сортировать по</mat-label>
+        <mat-select id="sortByIpnut" formControlName="sortBy">
+            <mat-option *ngFor="let sortBy of sortByList" [value]="sortBy">
+              {{sortBy}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+        <mat-label>Категория</mat-label>
+        <mat-select id="categoryIpnut" formControlName="category">
+            <mat-option *ngFor="let category of categorys" [value]="category">
+              {{category}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+        <mat-label>Регион</mat-label>
+        <mat-select id="regionIpnut" formControlName="region">
+            <mat-option *ngFor="let region of regions" [value]="region">
+              {{region}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-slide-toggle *ngIf="authorized" [color]="sliderColor" formControlName="onlyFavotite">Только избранные</mat-slide-toggle>
+    <mat-slide-toggle *ngIf="authorized" [color]="sliderColor" formControlName="onlySubs">Только подписки</mat-slide-toggle>
+
+    <div class="btn-container">
+        <button mat-button class="button" type="submit">Применить</button>
+        <button mat-button class="button" (click)="clearFilter()">Сбросить</button>
+    </div>
+</form>

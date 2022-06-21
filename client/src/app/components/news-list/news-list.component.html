@@ -1,0 +1,18 @@
+<div class="list-conteinr-outer">
+    <div class="list-conteinr-inner">
+        
+        <div *ngFor="let news of newsList">
+            <app-news-short-info 
+                [news]="news">
+            </app-news-short-info>
+        </div>
+    </div>
+    
+    <div *ngIf="!author_id" class="news-filter">
+        <app-news-filter (filter)="changeFilter($event)"></app-news-filter>
+    </div>
+</div>
+
+
+
+

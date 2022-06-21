@@ -1,0 +1,21 @@
+{% extends 'admin/model/details.html' %}
+
+{% block body %}
+
+    {{ super() }}
+    <H1>Полное содержание статьи без html кода:</H1>
+    {{ content|safe }}
+    <H1>Ресурс</H1>
+    <img width="255px" height="255px" src="{{ resources }}">
+    <br>
+    <br>
+    <div style="display: flex;">
+        <form style="margin-right: 100px;" method="GET" action="{{ 'approve/' ~ model.id }}">
+            <button class="btn btn-primary" type="submit">Approve</button>
+        </form>
+        <form method="GET" action="{{ 'delete/' ~ model.id }}">
+            <button class="btn btn-primary" type="submit">Delete</button>
+        </form>
+    </div>
+
+{% endblock %}

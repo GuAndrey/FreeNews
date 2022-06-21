@@ -1,0 +1,23 @@
+<div *ngIf="comment">
+  
+    <div class='comment-container'>
+
+      <div class='avatar'>
+        <img [src]="comment.author_avatar">
+      </div>
+      <div class='author_name'>
+        {{ comment.author_name | slice: 0:30 }}
+      </div>
+      <div class="content">
+        {{ comment.content | slice: 0:360 }}
+      </div>
+      <div class="date">
+        Дата: {{ comment.publish_date }}
+      </div>
+      
+      <div *ngIf="comment.by_current" class="delete-btn"
+            (click)="deleteComment()">
+            <mat-icon>clear</mat-icon>
+      </div>
+    </div>
+  </div>

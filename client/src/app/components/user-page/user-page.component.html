@@ -1,0 +1,99 @@
+<div class="outer">
+    <div class="outer" *ngIf="user">
+        <div class="avatar">
+            
+            <form enctype="multipart/data">
+                <label for="ava">
+                    <a 
+                        [ngClass]="{
+                            'current-avatar': user.current
+                        }">
+                        <img [src]="user.avatar">
+                    </a>
+                </label>
+                <input
+                    id="ava"
+                    *ngIf="user.current"
+                    type="file" 
+                    (change)="onFileSelected($event)" >
+            </form>
+        </div>
+        
+        <div class='name'>
+            {{ user.name }}
+        </div>
+        <div class='login'>
+            {{ user.login }}
+        </div>
+        <div class="stats">
+            <div>Подписчиков: {{ user.subs }}</div>
+            <div>Подписок: {{ user.to_subs }}</div>
+            <div class="stats-icon">
+                <div>
+                    <mat-icon>verified_user</mat-icon>
+                    <span style="margin: 0 5px;">{{ user.total_rep }}</span>
+                </div>
+                <div>
+                    <mat-icon>thumb_up_off_alt</mat-icon>
+                    <span style="margin: 0 5px;">{{ user.total_likes }}</span>
+                </div>
+                <div>
+                    <mat-icon>visibility</mat-icon>
+                    <span style="margin: 0 5px;">{{ user.total_views }}</span>
+                </div>
+                <div>
+                    <mat-icon>library_books</mat-icon>
+                    <span style="margin: 0 5px;">{{ user.total_news }}</span>
+                </div>                             
+            </div>
+        </div>
+        
+        <div class="button">
+            <button *ngIf="user.current" (click)="toMenu()">
+                Настройки
+            </button>
+            <button *ngIf="!user.current" (click)="swapSubs()">
+                <span *ngIf="!user.sub_by_current">
+                    Подписаться
+                 </span>
+                 <span *ngIf="user.sub_by_current">
+                    Отписаться
+                 </span>
+            </button>
+        </div>
+        
+        <div class="description">
+            <div class="label">
+                О себе: <mat-icon *ngIf="user.current" (click)="showEditDescription()">edit</mat-icon>
+            </div>
+            <div *ngIf="!editDescription">
+                {{ user.description }}
+            </div>
+            
+            <div class='description-container' [ngClass]="{
+                'is-hide': !editDescription
+                }">                
+                <form [formGroup]="descriptionForm" (ngSubmit)="sendDescription()">
+                    <mat-form-field appearance="outline">
+                        <mat-label>О себе</mat-label>
+                        <textarea matInput cdkTextareaAutosize maxlength="3000" id="descriptionInput" type="text" formControlName="description"
+                                placeholder="О себе"></textarea>
+                    </mat-form-field>
+                    <button mat-button class="button" type="submit">Сохранить</button>
+                </form>    
+            </div>
+        </div>
+        
+        <div *ngIf="user.role == UserRole.AUTHOR" class='news-list'>
+            <app-news-list [author_id]='user.id'></app-news-list>
+        </div>
+    </div>
+</div>
+
+<div class="add-material">
+    <div *ngIf="user">
+        
+        <button *ngIf="user.current && user.role == UserRole.AUTHOR" (click)="addNews()">
+        </button>
+    </div>
+</div>

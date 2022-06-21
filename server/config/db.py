@@ -1,0 +1,5 @@
+DB_HOST = "localhost"
+DB_NAME = "FreeNews"
+DB_USER = "admin"
+DB_PASSWORD = "qwerty"
+DB_PORT = "5434"

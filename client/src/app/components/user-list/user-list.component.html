@@ -1,0 +1,12 @@
+<div class="list-conteinr-outer">
+    <div class="list-conteinr-inner">
+        
+        <div *ngFor="let user of userList">
+            <app-user-short-info  [user]="user"></app-user-short-info>
+        </div>
+    </div>
+    
+    <div class="user-filter">
+        <app-user-filter (filter)="changeFilter($event)"></app-user-filter>
+    </div>
+</div>

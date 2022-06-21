@@ -1,0 +1,73 @@
+.news-container {
+    border: 1px solid #867F7F;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 0 10px 10px 0;
+    max-height: 255px;
+    min-width: 765px;
+    margin-top: 15px;
+    display: grid;
+    position: relative;
+    grid-template-areas:
+    "A A A A   B B B B   B B B B"
+    "A A A A   G G G G   G G G G"
+    "A A A A   C C C C   C C C C"
+    "A A A A   C C C C   C C C C"
+    "A A A A   D D D D   D D D D"
+    "A A A A   E E E E   F F F F";
+
+    .preview{        
+        grid-area: A;  
+        margin-right: 10px;
+        img {
+            width: 255px;
+            height: 255px;
+        }
+    }
+    .label{
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        font-size: 14pt;
+        grid-area: B;  
+    }
+    .region-category {
+        color:rgb(173, 173, 173);
+        font-size: 10pt;
+        grid-area: G;
+    }
+    .content{
+        grid-area: C;  
+        font-family: 'Open Sans';
+        margin-right: 10px;
+        margin-bottom: 5px;
+        overflow: hidden;
+        max-height: 130px;
+    }
+    .author{
+        grid-area: D;  
+    }
+    .date{
+        grid-area: E;  
+    }
+    .stats{
+        display: flex;
+        grid-area: F;
+        justify-content: flex-end;  
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+        .is-active {
+            color: #A70606;
+        }
+    }
+
+    .delete-btn {
+        position: absolute;
+        right: 7px;
+        top: 5px;
+    }
+}
+.is-not-approved {
+    border-color: #A70606;
+    box-shadow: 4px 4px 2px #A70606;
+}

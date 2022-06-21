@@ -1,0 +1,40 @@
+<div *ngIf="user">
+    <div class='user-container' (click)="toUserPage()">
+        <div class='avatar'>
+            <img [src]="user.avatar">
+        </div>
+        <div class='name'>
+            {{ user.name | slice: 0:30 }}
+        </div>
+        <div class='login'>
+            {{ user.login | slice: 0:30 }}
+        </div>
+        <div class="description">
+            {{ user.description | slice: 0:300 }}
+        </div>
+        <div class="stats">
+            <div>
+                <mat-icon [ngClass]="{
+                    'is-active': user.sub_by_current
+                    }">groups</mat-icon>
+                <span style="margin: 0 5px;">{{ user.subs }}</span>
+            </div>
+            <div>
+                <mat-icon>verified_user</mat-icon>
+                <span style="margin: 0 5px;">{{ user.total_rep }}</span>
+            </div>
+            <div>
+                <mat-icon>thumb_up_off_alt</mat-icon>
+                <span style="margin: 0 5px;">{{ user.total_likes }}</span>
+            </div>
+            <div>
+                <mat-icon>visibility</mat-icon>
+                <span style="margin: 0 5px;">{{ user.total_views }}</span>
+            </div>
+            <div>
+                <mat-icon>library_books</mat-icon>
+                <span style="margin: 0 5px;">{{ user.total_news }}</span>
+            </div>  
+        </div>
+    </div>
+</div>

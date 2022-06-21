@@ -1,0 +1,10 @@
+<div #outer class="outer-conteiner" (click)="close($event)">
+    <form class="menu">
+        <div class="menuLable">
+            Настройки
+        </div>
+        
+        <button mat-button class="button" type="button" (click)="swapRole()">Стать {{ roleToSwap }}</button>
+        <button mat-button class="button" type="button" (click)="logout()">Выйти из аккаунта</button>
+    </form>
+</div>

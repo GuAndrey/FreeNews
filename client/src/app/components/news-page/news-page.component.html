@@ -1,0 +1,62 @@
+<div class="outer">
+    <div class='container'>
+        <div *ngIf="news">
+            <div class='news-label'> {{ news.title }} </div>
+            <div class='news-content'>  </div>
+        </div>
+    </div>
+    
+    <div class='comment-container'>
+        <div *ngIf="news">
+            <form [formGroup]="commentForm" (ngSubmit)="sendComment()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Комментарий</mat-label>
+                    <textarea matInput cdkTextareaAutosize maxlength="360" id="commentInpyt" type="text" formControlName="comment"
+                           placeholder="Комментарий"></textarea>
+                </mat-form-field>
+                <button mat-button class="button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    
+    <div *ngFor="let comment of commentList">
+        <div class='comment-container'>
+            <app-comment (deleteCommentEvent)="getComments()" [comment]="comment"></app-comment>
+        </div>
+    </div>
+    
+    <div class="info">
+        <div *ngIf="news">
+            <div class="region">
+                Регион: {{ news.region }}
+            </div>
+            <div class="category">
+                Категория: {{ news.category }}
+            </div>
+            <div class="author">
+                Автор: {{ news.author_name }}
+            </div>
+            <div class="date">
+                Дата: {{ news.publish_date }}
+            </div>
+            <div class="stats">
+                <mat-icon [ngClass]="{
+                    'is-active': news.viewed
+                  }">visibility</mat-icon>
+                <span style="margin: 0 5px;">{{ news.viewes }}</span>
+                <mat-icon (click)="swapLike()" [ngClass]="{
+                    'is-active': news.liked
+                  }">thumb_up_off_alt</mat-icon>
+                <span style="margin: 0 5px;">{{ news.likes }}</span>
+                <mat-icon (click)="swapRep()" [ngClass]="{
+                    'is-active': news.plus_rep
+                  }">verified_user</mat-icon>
+                <span style="margin: 0 5px;">{{ news.rep }}</span>
+                <mat-icon (click)="swapFavorite()" [ngClass]="{
+                    'is-active': news.favorited
+                  }">turned_in</mat-icon>
+                <span style="margin: 0 5px;"></span>
+            </div>
+        </div>
+    </div>
+</div>

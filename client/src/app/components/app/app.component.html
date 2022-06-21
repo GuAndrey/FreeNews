@@ -1,0 +1,27 @@
+<img id="left-corner" src="assets/images/corner.png">
+<img id="right-corner" src="assets/images/corner.png">
+<h1>{{ title }}</h1>
+
+<nav>
+  <a routerLink="/news-list">
+    <div>Новости</div>  
+  </a>
+  <a routerLink="/user-list">
+    <div>Авторы</div>  
+  </a>
+  <a (click)="onLogin()">
+    <div>{{ login }}</div>  
+  </a>
+</nav>
+
+<app-login-form 
+  *ngIf="to_login">
+</app-login-form>
+<app-reg-form 
+  *ngIf="to_reg" >
+</app-reg-form>
+<app-user-menu
+  *ngIf="to_menu">
+</app-user-menu>
+
+<router-outlet (openMenuEvent)="openMenu()"></router-outlet>

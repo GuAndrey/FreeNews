@@ -1,0 +1,17 @@
+.list-conteinr-outer {
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    .list-conteinr-inner {
+        max-width: 765px;
+        min-width: 765px;
+    }
+    .user-filter {
+        position: absolute;
+    }
+}
+
+.list-label {
+    font-size: 24pt;
+}

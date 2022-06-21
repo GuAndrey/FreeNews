@@ -1,0 +1,35 @@
+.outer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .container {
+        margin-top: 40px;
+        max-width: 765px;
+        border: 1px solid #C8C8C8;
+        box-sizing: border-box;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+        .news-input {
+            text-align: center;
+            mat-form-field {
+                min-width: 683px;
+            }
+        }
+
+        .news-avatar {
+            margin-top: 20px;
+            text-align: center;
+            min-width: 683px;
+            margin-bottom: 30px;
+            input {
+                margin-left: 20px;
+            }
+        }
+
+        .news-content {
+            font-family: 'Open Sans';
+            margin: 20px 40px;
+        }
+    }
+}
+

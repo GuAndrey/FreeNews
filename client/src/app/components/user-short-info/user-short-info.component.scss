@@ -1,0 +1,58 @@
+.user-container {
+    border: 1px solid #867F7F;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 147px;
+    max-height: 255px;
+    margin-top: 15px;
+    display: grid;
+    justify-content: start;
+    grid-template-areas:
+    "A A A A   B B B B   B B B B"
+    "A A A A   C C C C   C C C C"
+    "A A A A   D D D D   D D D D"
+    "A A A A   D D D D   D D D D"
+    "A A A A   E E E E   E E E E";
+
+    .avatar{        
+        grid-area: A;  
+        margin-right: 10px;
+        width: 255px;
+        img {
+            border-radius: 100%;
+            width: 255px;
+            height: 255px;
+        }
+    }
+    .name{
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 22pt;
+        grid-area: B;  
+    }
+    .login{
+        grid-area: C;  
+    }
+    .description{
+        grid-area: D;  
+        font-family: 'Open Sans';
+        margin-right: 10px;
+        margin-bottom: 10px;
+        word-wrap: anywhere;
+    } 
+    .stats{
+        display: flex;
+        grid-area: E;
+        justify-content: flex-start;  
+        margin-bottom: 10px;
+
+        div {
+            margin-right: 10px;
+            display: flex;
+        }
+        .is-active {
+            color: #A70606;
+        }
+    }
+
+}

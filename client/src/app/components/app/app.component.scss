@@ -1,0 +1,45 @@
+h1 {
+    font-family: Poly;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    font-size: 70pt;
+    margin-top: 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #A70606;
+    height: 64px;
+    a {
+        font-size: 15pt;
+        text-decoration: none;
+        align-items: center;
+        color: white;
+        width: 255px;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        box-sizing: border-box;
+        margin-left: -1px;
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    }
+}
+
+#left-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#right-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+}
